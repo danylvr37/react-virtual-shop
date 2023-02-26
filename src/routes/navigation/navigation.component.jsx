@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { Layout, Button, Drawer } from 'antd'
+import React, { useContext, useEffect, useState } from 'react'
+import { Layout, Button, Drawer, Divider } from 'antd'
 import { LeftMenu } from './left-menu.component'
 import { RightMenu } from './right-menu.component'
 import { MenuOutlined } from '@ant-design/icons'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { ReactComponent as DlvrLogo } from '../../assets/dlvr.logo.svg'
+import { UserContext } from '../../contexts/user.context'
 
 import './navigation.styles.scss'
 
 export const Navigation = () => {
   const [visible, setVisible] = useState(false)
+
+  const { currentUser } = useContext(UserContext)
 
   const showDrawer = () => {
     setVisible(!visible)
@@ -37,7 +40,10 @@ export const Navigation = () => {
                 <MenuOutlined />
               </Button>
               <div className='rightMenu'>
-                <RightMenu mode='horizontal' />
+                <RightMenu
+                  mode='horizontal'
+                  user={currentUser}
+                />
               </div>
 
               <Drawer
@@ -49,12 +55,14 @@ export const Navigation = () => {
                 style={{ zIndex: 99999 }}
               >
                 <LeftMenu mode='inline' />
+                <Divider />
                 <RightMenu mode='inline' />
               </Drawer>
             </div>
           </Layout.Header>
         </Layout>
       </nav>
+
       <Outlet />
     </>
   )

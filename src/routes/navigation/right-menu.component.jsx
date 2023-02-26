@@ -1,22 +1,23 @@
-import React from 'react'
-import { Menu, Avatar } from 'antd'
-import { UserOutlined } from '@ant-design/icons'
+import React, { useContext } from 'react'
 
-export const RightMenu = ({ mode }) => {
-  const items = [
-    {
-      label: 'User',
-      key: 'submenu',
-      icon: <Avatar icon={<UserOutlined />} />,
-      children: [
-        { label: 'item 1', key: 'submenu-item-1' }
-      ]
-    }
-  ]
+import { CartIcon } from '../../components/cart-icon/cart-icon.component'
+import { UserOutlined } from '@ant-design/icons'
+import { CartDropDown } from '../../components/dropdowns/cart-dropdown/cart-dropdwon.component'
+import { UserDropdown } from '../../components/dropdowns/user-dropdown/user-dropdwon.component'
+import { CartContext } from '../../contexts/cart.context'
+
+export const RightMenu = ({ user, mode }) => {
+  const { isCartOpen } = useContext(CartContext)
 
   return (
     <>
-      <Menu mode={mode} items={items} />
+      {
+        mode === 'horizontal'
+          ? <UserDropdown user={user} mode={mode} />
+          : <span className='dropdawn-menu-vertical'><UserOutlined /> {user ? <div>Logout</div> : <div>Login</div>}</span>
+      }
+      <CartIcon mode={mode} />
+      {isCartOpen && <CartDropDown />}
     </>
   )
 }

@@ -42,8 +42,9 @@
 }
 
 .navbar-menu {
-  width: calc(100% - 200px);
-  float: left;
+  width: calc(100% - 100px);
+  display: flex;
+  justify-content: space-between;
 }
 .navbar-menu .ant-layout-header {
   padding: 0 20px;
@@ -55,16 +56,21 @@
 
 .navbar-menu .ant-menu-item {
   padding-bottom: 0px;
+  display: flex;
 }
 
-.navbar-menu .leftMenu {
-  float: left;
-  width: 80%;
+.leftMenu {
+  width: 50%;
 }
 
-.navbar-menu .rightMenu {
-  float: right;
-  margin-right: -110px;
+.rightMenu {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rightMenu > ul {
+  justify-content: flex-end;
 }
 
 .menuButton {
@@ -74,11 +80,14 @@
   margin-top: 14px;
   display: none;
   background: none;
-  margin-right: -110px !important;
 }
 
 .ant-drawer-body {
   padding: 0;
+}
+
+.ant-drawer-body > ul {
+  border-inline-end: none !important;
 }
 
 .ant-drawer-body .ant-menu-horizontal > .ant-menu-item,
@@ -99,7 +108,30 @@
   justify-content: center !important;
 }
 
+.dropdawn-menu-vertical{
+  z-index: 3;
+  position: relative !important;
+  left: 28px;
+  display: flex;
+}
+
+.dropdawn-menu-vertical > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropdawn-menu-vertical > div {
+  position: relative;
+  margin-inline-start: 10px;
+}
+
 @media (max-width: 767px) {
+  .navbar-menu {
+    float: right;
+    justify-content: flex-end;
+  }
+
   .menuButton {
     display: block;
     margin-right: 10px;

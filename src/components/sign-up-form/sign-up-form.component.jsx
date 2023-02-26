@@ -1,8 +1,11 @@
-import { notification, Col, Button } from 'antd'
+import { Col, Button, Row } from 'antd'
 import React, { useState } from 'react'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils'
+import { openNotification } from '../../utils/firebase/notifications.utils'
 import { FormInput } from '../form-input/form-input.component'
+
 import './sign-up-form.styles.scss'
+import Title from 'antd/es/typography/Title'
 
 const defaultFormFields = {
   displayName: '',
@@ -35,27 +38,12 @@ export const SignUpForm = () => {
         if (error.code === 'auth/email-already-in-use') {
           openNotification('Cannot create user, email already in use', 'error')
         } else {
+          openNotification('Cannot create user, error: ' + error, 'error')
           console.log('user creation encountered an error:', 'error')
         }
       }
     }
   }
-
-  const openNotification = (body, type) => {
-    const notificationBody = {
-      success: 'Congrats',
-      error: 'An error has occurred',
-      warning: 'We have detected a problem'
-    }
-    notification[type]({
-      message: notificationBody[type],
-      description: body
-    })
-  }
-
-  notification.config({
-    top: 70
-  })
 
   const handleEvent = (event) => {
     const { name, value } = event.target
@@ -66,8 +54,10 @@ export const SignUpForm = () => {
   return (
     <>
       <Col span={10}>
-        <h1>Don't have an account?</h1>
-        <h2>Sign up with your email and password</h2>
+        <Row justify='center'>
+          <Title level={2}>Don't have an account?</Title>
+          <Title level={4}>Register with your email and password</Title>
+        </Row>
         <form className='form-group'>
           <FormInput
             label='Display Name'
@@ -104,7 +94,7 @@ export const SignUpForm = () => {
             value={confirmPassword}
           />
 
-          <Button onClick={handleSubmit}>Sign Up</Button>
+          <Button id='signUpButton' onClick={handleSubmit}>Sign Up</Button>
         </form>
       </Col>
     </>

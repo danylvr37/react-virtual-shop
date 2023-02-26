@@ -1,0 +1,26 @@
+.product-card > .ant-card-body {
+  padding: 0 24px !important;
+}
+
+#addButton {
+  display: none !important;
+  width: 80%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+#addButton:hover {
+  opacity: 1 !important;
+}
+
+.product-card-container {
+
+  &:hover {
+    #addButton {
+      opacity: 0.85;
+      display: flex !important;
+    }
+  }
+}
