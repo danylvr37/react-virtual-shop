@@ -1,0 +1,42 @@
+.checkout-row {
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .checkout-col-center{
+    display: flex;
+    justify-content: center;
+    
+    .checkout-div-arrow {
+      .checkout-arrow {
+        margin-top: 5px;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .checkout-col-end{
+    display: flex;
+    justify-content: right;
+  }
+  
+  .checkout-col-middle-end{
+    display: flex;
+    justify-content: right;
+    padding-right: 30px !important;
+  }
+
+  .checkout-image {
+    img {
+      width: 100px !important;
+    }
+  }
+
+  .total-checkout {
+    font-size: 32px;
+  }
+}

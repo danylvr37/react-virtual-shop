@@ -9,8 +9,7 @@ export const LeftMenu = ({ mode }) => {
 
   const items = [
     { label: 'Home', key: '/', icon: <HomeOutlined /> },
-    { label: 'Shop', key: '/shop', icon: <ShopOutlined /> },
-    { label: 'Sign In', key: '/auth', icon: <TeamOutlined /> }
+    { label: 'Shop', key: '/shop', icon: <ShopOutlined /> }
   ]
 
   const getItemByKey = (key) => {

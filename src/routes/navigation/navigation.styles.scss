@@ -113,17 +113,44 @@
   position: relative !important;
   left: 28px;
   display: flex;
+  cursor: pointer;
+}
+
+.dropdown-menu-vertical > span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dropdown-menu-vertical > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 8px;
 }
 
 .dropdawn-menu-vertical > div {
   position: relative;
   margin-inline-start: 10px;
+}
+
+.dropdown-cart-menu-vertical {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-cart-menu-vertical > .cart-icon-container-vertical {
+  width: 35px;
+  padding-left: 2px;
+}
+
+.dropdown-cart-menu-vertical > .cart-icon-container-vertical > svg  {
+  width: 20px;
+  height: 20px;
+  display: flex;
 }
 
 @media (max-width: 767px) {
