@@ -108,14 +108,14 @@
   justify-content: center !important;
 }
 
-.dropdawn-menu-vertical{
+.dropdown-menu-vertical{
   z-index: 3;
   position: relative !important;
   left: 28px;
   display: flex;
 }
 
-.dropdawn-menu-vertical > div {
+.dropdown-menu-vertical > div {
   display: flex;
   flex-direction: column;
   justify-content: center;

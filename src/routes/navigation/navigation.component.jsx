@@ -56,7 +56,7 @@ export const Navigation = () => {
               >
                 <LeftMenu mode='inline' />
                 <Divider />
-                <RightMenu mode='inline' />
+                <RightMenu mode='inline' user={currentUser} />
               </Drawer>
             </div>
           </Layout.Header>
